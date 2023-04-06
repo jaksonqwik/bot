@@ -1,17 +1,16 @@
 <?php
-include_once "bot.php";
-$bot = new Bot($db_host, $db_user, $db_password, $db_name);
+set_time_limit(0);
+ob_start();
+const TOKEN = "6275400992:AAGkAjrq9NlJFi3g7fWxdwUMbG2cR1O8__g";
 
 $update = file_get_contents('php://input');
+
 file_put_contents('data.json', $update);
 $update = json_decode($update);
-$bot->saveUserData($update);
-
-function __destruct(){
-    mysqli_close($this->db);
-}
+$name = $update->message->from->username;
+$chat_id = $update->message->chat->id;
 
 if($update->message->text == "/start"){
-    $bot->sendtext($chat_id, "Привет @" . $name);
+    sendtext($chat_id, "Привет " . "@".$name);
 }
 ?>

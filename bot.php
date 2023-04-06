@@ -1,17 +1,5 @@
 <?php
 class Bot{
-    private $db;
-
-    function __construct($db_host, $db_user, $db_password, $db_name){
-        $this->db = mysqli_connect($db_host, $db_user, $db_password, $db_name);
-        if (mysqli_connect_errno()) {
-            echo "Ошибка подключения к базе данных: " . mysqli_connect_error();
-            exit;
-          } else {
-            echo "Подключение к базе данных прошло успешно!";
-          }
-    }
-
     function bot($method, $datas = []){
         $url = "https://api.telegram.org/bot" . TOKEN . "/" . $method;
         $ch = curl_init();
@@ -26,7 +14,7 @@ class Bot{
             return json_decode($res);
         }
     }
-
+    
     function sendtext($chat_id, $text){
         bot('sendMessage',
             [
@@ -36,20 +24,5 @@ class Bot{
             ]
             );
     }
-
-    function saveUserData($update){
-        $chat_id = $update->message->chat->id;
-        $name = $update->message->chat->first_name;
-        $username = $update->message->chat->username;
-
-        $sql = "INSERT INTO users (`id`, `name`, `username`) VALUES (NULL, '$name', '$username')";
-        mysqli_query($this->db, $sql);
-    }
-
 }
-
-
-$db_host = "localhost";
-$db_user = "root";
-$db_password = "";
-$db_name = "tg_bot";
+?>
