@@ -1,2 +1,2 @@
-{"update_id":572639391,
-"message":{"message_id":31,"from":{"id":542414385,"is_bot":false,"first_name":"Nikita","username":"nikitkk05","language_code":"ru"},"chat":{"id":-908817486,"title":"asdf","type":"group","all_members_are_administrators":true},"date":1680887798,"text":"/start","entities":[{"offset":0,"length":6,"type":"bot_command"}]}}
+{"update_id":572639401,
+"message":{"message_id":44,"from":{"id":542414385,"is_bot":false,"first_name":"Nikita","username":"nikitkk05","language_code":"ru"},"chat":{"id":-908817486,"title":"asdf","type":"group","all_members_are_administrators":true},"date":1680889232,"text":"/start","entities":[{"offset":0,"length":6,"type":"bot_command"}]}}
