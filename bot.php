@@ -14,15 +14,14 @@ class Bot{
             return json_decode($res);
         }
     }
-    
     function sendtext($chat_id, $text){
-        bot('sendMessage',
+        $this->bot('sendMessage',
             [
                 'chat_id' => $chat_id,
                 'text' => $text,
                 'parse_mode' => 'Markdown' 
             ]
-            );
+        );
     }
 }
 ?>
